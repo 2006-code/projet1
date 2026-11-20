@@ -14,7 +14,7 @@ public class GestionReservation {
     public void ajouterUtilisateur(Utilisateur u){
         utilisateurs.add(u);
     }
-    public void affichUtilisateur(){
+    public void afficherUtilisateur(){
         for(Utilisateur u:utilisateurs){
             System.out.println(u.toString());
         }
@@ -22,7 +22,7 @@ public class GestionReservation {
     public void ajouterReservation(Reservation r){
         reservations.add(r);
     }
-    public void affichReservation(){
+    public void afficherReservation(){
         for(Reservation r:reservations){
             System.out.println(r.toString());
         }

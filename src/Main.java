@@ -17,9 +17,9 @@ public class Main {
         g.ajouterSalle(s);
         g.afficherSalle();
         g.ajouterUtilisateur(u);
-        g.affichUtilisateur();
+        g.afficherUtilisateur();
         g.ajouterReservation(r1);
         g.ajouterReservation(r2);
-        g.affichReservation();
+        g.afficherReservation();
     }
 }

@@ -8,7 +8,7 @@ public class Reservation {
     private LocalDate date;
     private LocalTime heureDebut;
     private LocalTime heureFin;
-    Reservation(Salle salle, Utilisateur utilisateur, LocalDate date, LocalTime heureDebut, LocalTime heureFin){
+   public Reservation(Salle salle, Utilisateur utilisateur, LocalDate date, LocalTime heureDebut, LocalTime heureFin){
         if(salle==null || utilisateur==null || date==null){
             throw new IllegalArgumentException("Salle, utilisateur et date sont obligatoires.");
         }
@@ -20,7 +20,7 @@ public class Reservation {
         this.heureDebut=heureDebut;
         this.heureFin=heureFin;
     }
-    public void verifierHoraires(LocalTime heureDebut, LocalTime heureFin){
+    private void verifierHoraires(LocalTime heureDebut, LocalTime heureFin){
         if(heureDebut==null || heureFin==null || !heureFin.isAfter(heureDebut)){
           throw new IllegalArgumentException("L'heure de fin doit etre après l'heure de début.");
         }
