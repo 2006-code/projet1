@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.LocalTime;
 public class GestionReservation {
     private ArrayList<Salle> salles= new ArrayList<>();
     private ArrayList<Utilisateur> utilisateurs= new ArrayList<>();
@@ -31,7 +33,7 @@ public class GestionReservation {
     }
     public void ajouterReservation(Reservation r)throws ConflitReservationException{
         for(Reservation reservation:reservations){
-           if(reservation.chevauche( r)){
+           if(reservation.chevauche(r)){
                throw new ConflitReservationException("Conflit : la salle " + r.getSalle().getNom() + " est déjà réservée le "
                        + r.getDate() + " de " + reservation.getHeureDebut() + " à " + reservation.getHeureFin() + ".");
            }
@@ -66,5 +68,20 @@ public class GestionReservation {
             }
         }
         return null;
+    }
+    public Reservation creerReservation(int idS,int idU,LocalDate date,LocalTime debut,LocalTime fin)
+            throws ConflitReservationException // indique que cette méthode peut provoquer une exception personnalisée appelée ConflitReservationException
+     {
+        Salle s=trouverSalle(idS);
+        if( s==null){
+            throw new IllegalArgumentException("Salle introuvable");
+        }
+        Utilisateur u=trouverUtilisateur(idU);
+        if( u==null){
+            throw new IllegalArgumentException("Utilisateur introuvable");
+        }
+        Reservation r= new Reservation(s,u,date,debut,fin);
+            ajouterReservation(r);
+        return r;
     }
 }

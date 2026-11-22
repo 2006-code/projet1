@@ -8,7 +8,7 @@ public class Main {
         System.out.println(s1);
         Utilisateur u=new Utilisateur("Sara","SARA@gmail.com",Role.UTILISATEUR);
         System.out.println(u);
-        Reservation r1=new Reservation(s1,u, LocalDate.of(2026,11,16),LocalTime.of(9,0),LocalTime.of(11,0));
+        Reservation r1=new Reservation(s1,u, LocalDate.of(2026,11,23),LocalTime.of(9,0),LocalTime.of(11,0));
         Reservation r2=new Reservation(s1,u, LocalDate.of(2026,11,16),LocalTime.of(8,0),LocalTime.of(10,0));
         Reservation r3=new Reservation(s2,u, LocalDate.of(2026,11,16),LocalTime.of(11,0),LocalTime.of(13,0));
         System.out.println(r1);
@@ -22,12 +22,9 @@ public class Main {
         g.afficherUtilisateur();
         LocalDate demain = LocalDate.now().plusDays(1);
         try {
-            g.ajouterReservation(new Reservation( s1, u, demain,
-                    LocalTime.of(10, 0), LocalTime.of(12, 0)));
+            g.ajouterReservation(r1);
             System.out.println("Réservation 1 acceptée");
-
-            g.ajouterReservation(new Reservation( s1, u, demain,
-                    LocalTime.of(11, 0), LocalTime.of(13, 0)));
+            g.ajouterReservation(r2);
             System.out.println("Réservation 2 acceptée");
         } catch (ConflitReservationException e) {
             System.out.println(e.getMessage());
@@ -37,5 +34,10 @@ public class Main {
         System.out.println(g.trouverSalle(4));
         System.out.println(g.trouverUtilisateur(2));
         System.out.println(g.trouverReservation(3));
+        try{
+        g.creerReservation(1,1,demain,LocalTime.of(9,0),LocalTime.of(11,0));
+        g.afficherReservation();} catch(ConflitReservationException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
