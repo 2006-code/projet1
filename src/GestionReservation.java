@@ -27,4 +27,28 @@ public class GestionReservation {
             System.out.println(r.toString());
         }
     }
+    public Salle trouverSalle(int id){
+        for(Salle s:salles) {
+            if (s.getId() == id) {
+                return s;
+            }
+        }
+        return null;
+    }
+    public Utilisateur trouverUtilisateur(int id){
+        for(Utilisateur u:utilisateurs) {
+            if (u.getId() == id) {
+                return u;
+            }
+        }
+        return null;
+    }
+    public Reservation trouverReservation(int id){
+        for(Reservation r:reservations) {
+            if (r.getId() == id) {
+                return r;
+            }
+        }
+        return null;
+    }
 }
