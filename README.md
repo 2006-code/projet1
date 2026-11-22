@@ -39,7 +39,7 @@ Déjà réalisé :
 ## Avancement
 
 - [x] Semaine 1 : conception et création des classes
-- [ ] Semaine 2 : fonctionnalités
+- [x] Semaine 2 : fonctionnalités
 - [ ] Semaine 3 : menu, gestion des erreurs et sauvegarde
 
 ## Auteur
