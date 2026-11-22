@@ -20,9 +20,18 @@ public class Main {
         g.afficherSalle();
         g.ajouterUtilisateur(u);
         g.afficherUtilisateur();
-        g.ajouterReservation(r1);
-        g.ajouterReservation(r2);
-        g.ajouterReservation(r3);
+        LocalDate demain = LocalDate.now().plusDays(1);
+        try {
+            g.ajouterReservation(new Reservation( s1, u, demain,
+                    LocalTime.of(10, 0), LocalTime.of(12, 0)));
+            System.out.println("Réservation 1 acceptée");
+
+            g.ajouterReservation(new Reservation( s1, u, demain,
+                    LocalTime.of(11, 0), LocalTime.of(13, 0)));
+            System.out.println("Réservation 2 acceptée");
+        } catch (ConflitReservationException e) {
+            System.out.println(e.getMessage());
+        }
         g.afficherReservation();
         System.out.println(g.trouverSalle(2));
         System.out.println(g.trouverSalle(4));

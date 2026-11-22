@@ -30,5 +30,4 @@ public class Salle {
     public String toString(){
         return id+" - "+nom+" - "+capacite;
     }
-
 }
