@@ -26,6 +26,8 @@ public class Main {
             System.out.println("Réservation 1 acceptée");
             g.ajouterReservation(r2);
             System.out.println("Réservation 2 acceptée");
+            g.ajouterReservation(r3);
+            System.out.println("Réservation 3 acceptée");
         } catch (ConflitReservationException e) {
             System.out.println(e.getMessage());
         }
@@ -39,5 +41,12 @@ public class Main {
         g.afficherReservation();} catch(ConflitReservationException e) {
             System.out.println(e.getMessage());
         }
+        g.afficherReservation();
+        System.out.println("------------------------");
+        try{g.annulerReservation(2);
+        g.annulerReservation(4);}catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+        g.afficherReservation();
     }
 }

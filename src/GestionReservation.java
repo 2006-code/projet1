@@ -84,4 +84,11 @@ public class GestionReservation {
             ajouterReservation(r);
         return r;
     }
+    public void annulerReservation(int id){
+       Reservation r= trouverReservation(id);
+       if(r==null){
+           throw new IllegalArgumentException("Réservation d'id"+id+" introuvable");
+       }
+       reservations.remove(r);
+    }
 }
